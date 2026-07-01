@@ -111,27 +111,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Master
+                Admin
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="index.php?page=dashboard" class="nav-link">
+                <a href="index.php?page=dashboard_admin" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=laporan" class="nav-link">
+                <a href="index.php?page=lapangan_admin" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Absen</p>
+                  <p>Lapangan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=pegawai" class="nav-link">
+                <a href="index.php?page=booking_admin" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data pegawai</p>
+                  <p>Booking</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?page=pembayaran_admin" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pembayaran</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?page=user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -143,38 +155,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
             <?php endif; ?>
 
-          <?php if ($role == 'pegawai') : ?>
+          <?php if ($role == 'pengguna') : ?>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>
-                Pegawai
+                Pegguna
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="index.php?page=dashboard_pegawai" class="nav-link">
+                <a href="index.php?page=dashboard" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=absen" class="nav-link">
+                <a href="index.php?page=lapangan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Absen</p>
+                  <p>Lapangan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?page=booking" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Booking</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="index.php?page=riwayat" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Riwayat Absen</p>
+                  <p>Riwayat Booking</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=ganti_password" class="nav-link">
+                <a href="index.php?page=pembayaran" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Ganti Password</p>
+                  <p>Pembayaran</p>
                 </a>
               </li>
               <li class="nav-item">
