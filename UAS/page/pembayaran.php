@@ -4,19 +4,9 @@ $username = $_SESSION['username'];
 $q_me = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT id_user FROM user WHERE username = '$username'"));
 $id_user = $q_me['id_user'];
 
-// proses konfirmasi pembayaran (hanya milik sendiri)
-if (isset($_GET['bayar'])) {
-    $id_pembayaran = mysqli_real_escape_string($koneksi, $_GET['bayar']);
-    $q_cek = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT pembayaran.id_pembayaran
-                                                          FROM pembayaran
-                                                          JOIN booking ON pembayaran.id_booking = booking.id_booking
-                                                          WHERE pembayaran.id_pembayaran = '$id_pembayaran' AND booking.id_user = '$id_user'"));
-    if ($q_cek) {
-        mysqli_query($koneksi, "UPDATE pembayaran SET status_bayar = 'Sudah Bayar' WHERE id_pembayaran = '$id_pembayaran'");
-    }
-    echo "<script>window.location='index.php?page=pembayaran'</script>";
-    exit;
-}
+// Catatan: konfirmasi "Sudah Bayar" hanya boleh dilakukan oleh admin
+// melalui halaman pembayaran_admin.php, sehingga tidak ada proses
+// update status_bayar di halaman pengguna ini.
 ?>
 
 <div class="card">
@@ -62,9 +52,7 @@ if (isset($_GET['bayar'])) {
           </td>
           <td>
             <?php if ($row['status_bayar'] == 'Belum Bayar') : ?>
-            <a href="index.php?page=pembayaran&bayar=<?php echo $row['id_pembayaran']; ?>" class="btn btn-primary btn-sm" onclick="return confirm('Konfirmasi bahwa Anda sudah melakukan pembayaran?')">
-              <i class="fas fa-money-check-alt"></i> Bayar Sekarang
-            </a>
+            <span class="text-muted"><i class="fas fa-clock"></i> Menunggu konfirmasi admin</span>
             <?php else : ?>
             <span class="text-muted">Lunas</span>
             <?php endif; ?>

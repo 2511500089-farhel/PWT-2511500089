@@ -1,4 +1,10 @@
 <?php
+// hanya admin yang boleh mengubah/menghapus data pembayaran
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    echo '<div class="alert alert-danger">Akses ditolak. Hanya admin yang dapat mengubah status pembayaran.</div>';
+    return;
+}
+
 // proses update pembayaran
 if (isset($_POST['edit'])) {
     $id_pembayaran = mysqli_real_escape_string($koneksi, $_POST['id_pembayaran']);
